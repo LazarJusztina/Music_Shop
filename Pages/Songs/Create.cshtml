@@ -1,0 +1,59 @@
+﻿@page
+@model Music_Shop.Pages.Songs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Song</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Song.Title" class="control-label"></label>
+                <input asp-for="Song.Title" class="form-control" />
+                <span asp-validation-for="Song.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Singer" class="control-label"></label>
+                <input asp-for="Song.Singer" class="form-control" />
+                <span asp-validation-for="Song.Singer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.ProducerID" class="control-label">Producer Name</label>
+                <select asp-for="Song.ProducerID" class="form-control" asp-items="ViewBag.ProducerID"></select>
+                <span asp-validation-for="Song.ProducerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Quantity" class="control-label"></label>
+                <input asp-for="Song.Quantity" class="form-control" />
+                <span asp-validation-for="Song.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Price" class="control-label"></label>
+                <input asp-for="Song.Price" class="form-control" />
+                <span asp-validation-for="Song.Price" class="text-danger"></span>
+            </div>
+            <div class ="form-group">
+            <label asp-for =" Song.PublishingDate " class ="control-label"></label>
+            <input asp-for =" Song.PublishingDate " class ="form-control" />
+            <span asp-validation-for =" Song.PublishingDate " class ="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
